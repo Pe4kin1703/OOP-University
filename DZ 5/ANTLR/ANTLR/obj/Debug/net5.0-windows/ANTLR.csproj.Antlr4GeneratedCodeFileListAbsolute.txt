@@ -1,0 +1,6 @@
+C:\Users\danil\Desktop\OOP university\DZ 5\ANTLR\ANTLR\obj\Debug\net5.0-windows\LabCalculatorLexer.cs
+C:\Users\danil\Desktop\OOP university\DZ 5\ANTLR\ANTLR\obj\Debug\net5.0-windows\LabCalculatorParser.cs
+C:\Users\danil\Desktop\OOP university\DZ 5\ANTLR\ANTLR\obj\Debug\net5.0-windows\LabCalculatorListener.cs
+C:\Users\danil\Desktop\OOP university\DZ 5\ANTLR\ANTLR\obj\Debug\net5.0-windows\LabCalculatorBaseListener.cs
+C:\Users\danil\Desktop\OOP university\DZ 5\ANTLR\ANTLR\obj\Debug\net5.0-windows\LabCalculatorVisitor.cs
+C:\Users\danil\Desktop\OOP university\DZ 5\ANTLR\ANTLR\obj\Debug\net5.0-windows\LabCalculatorBaseVisitor.cs

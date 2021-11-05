@@ -13,7 +13,6 @@ C:\Users\danil\Desktop\OOP university\DZ 5\ANTLR\ANTLR\obj\Debug\net5.0-windows\
 C:\Users\danil\Desktop\OOP university\DZ 5\ANTLR\ANTLR\obj\Debug\net5.0-windows\LabCalculatorVisitor.cs
 C:\Users\danil\Desktop\OOP university\DZ 5\ANTLR\ANTLR\obj\Debug\net5.0-windows\LabCalculatorBaseVisitor.cs
 C:\Users\danil\Desktop\OOP university\DZ 5\ANTLR\ANTLR\obj\Debug\net5.0-windows\ANTLR.csproj.Antlr4GeneratedCodeFileListAbsolute.txt
-C:\Users\danil\Desktop\OOP university\DZ 5\ANTLR\ANTLR\obj\Debug\net5.0-windows\ANTLR.Form1.resources
 C:\Users\danil\Desktop\OOP university\DZ 5\ANTLR\ANTLR\obj\Debug\net5.0-windows\ANTLR.csproj.GenerateResource.cache
 C:\Users\danil\Desktop\OOP university\DZ 5\ANTLR\ANTLR\obj\Debug\net5.0-windows\ANTLR.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\danil\Desktop\OOP university\DZ 5\ANTLR\ANTLR\obj\Debug\net5.0-windows\ANTLR.AssemblyInfoInputs.cache
@@ -24,3 +23,32 @@ C:\Users\danil\Desktop\OOP university\DZ 5\ANTLR\ANTLR\obj\Debug\net5.0-windows\
 C:\Users\danil\Desktop\OOP university\DZ 5\ANTLR\ANTLR\obj\Debug\net5.0-windows\ref\ANTLR.dll
 C:\Users\danil\Desktop\OOP university\DZ 5\ANTLR\ANTLR\obj\Debug\net5.0-windows\ANTLR.pdb
 C:\Users\danil\Desktop\OOP university\DZ 5\ANTLR\ANTLR\obj\Debug\net5.0-windows\ANTLR.genruntimeconfig.cache
+C:\Users\danil\Desktop\ANTLR\ANTLR\bin\Debug\net5.0-windows\ANTLR.exe
+C:\Users\danil\Desktop\ANTLR\ANTLR\bin\Debug\net5.0-windows\ANTLR.deps.json
+C:\Users\danil\Desktop\ANTLR\ANTLR\bin\Debug\net5.0-windows\ANTLR.runtimeconfig.json
+C:\Users\danil\Desktop\ANTLR\ANTLR\bin\Debug\net5.0-windows\ANTLR.runtimeconfig.dev.json
+C:\Users\danil\Desktop\ANTLR\ANTLR\bin\Debug\net5.0-windows\ANTLR.dll
+C:\Users\danil\Desktop\ANTLR\ANTLR\bin\Debug\net5.0-windows\ref\ANTLR.dll
+C:\Users\danil\Desktop\ANTLR\ANTLR\bin\Debug\net5.0-windows\ANTLR.pdb
+C:\Users\danil\Desktop\ANTLR\ANTLR\bin\Debug\net5.0-windows\Antlr4.Runtime.dll
+C:\Users\danil\Desktop\ANTLR\ANTLR\obj\Debug\net5.0-windows\ANTLR.csproj.AssemblyReference.cache
+C:\Users\danil\Desktop\ANTLR\ANTLR\obj\Debug\net5.0-windows\LabCalculatorLexer.cs
+C:\Users\danil\Desktop\ANTLR\ANTLR\obj\Debug\net5.0-windows\LabCalculatorParser.cs
+C:\Users\danil\Desktop\ANTLR\ANTLR\obj\Debug\net5.0-windows\LabCalculatorListener.cs
+C:\Users\danil\Desktop\ANTLR\ANTLR\obj\Debug\net5.0-windows\LabCalculatorBaseListener.cs
+C:\Users\danil\Desktop\ANTLR\ANTLR\obj\Debug\net5.0-windows\LabCalculatorVisitor.cs
+C:\Users\danil\Desktop\ANTLR\ANTLR\obj\Debug\net5.0-windows\LabCalculatorBaseVisitor.cs
+C:\Users\danil\Desktop\ANTLR\ANTLR\obj\Debug\net5.0-windows\ANTLR.csproj.Antlr4GeneratedCodeFileListAbsolute.txt
+C:\Users\danil\Desktop\ANTLR\ANTLR\obj\Debug\net5.0-windows\ANTLR.Form1.resources
+C:\Users\danil\Desktop\ANTLR\ANTLR\obj\Debug\net5.0-windows\ANTLR.csproj.GenerateResource.cache
+C:\Users\danil\Desktop\ANTLR\ANTLR\obj\Debug\net5.0-windows\ANTLR.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\danil\Desktop\ANTLR\ANTLR\obj\Debug\net5.0-windows\ANTLR.AssemblyInfoInputs.cache
+C:\Users\danil\Desktop\ANTLR\ANTLR\obj\Debug\net5.0-windows\ANTLR.AssemblyInfo.cs
+C:\Users\danil\Desktop\ANTLR\ANTLR\obj\Debug\net5.0-windows\ANTLR.csproj.CoreCompileInputs.cache
+C:\Users\danil\Desktop\ANTLR\ANTLR\obj\Debug\net5.0-windows\ANTLR.csproj.CopyComplete
+C:\Users\danil\Desktop\ANTLR\ANTLR\obj\Debug\net5.0-windows\ANTLR.dll
+C:\Users\danil\Desktop\ANTLR\ANTLR\obj\Debug\net5.0-windows\ref\ANTLR.dll
+C:\Users\danil\Desktop\ANTLR\ANTLR\obj\Debug\net5.0-windows\ANTLR.pdb
+C:\Users\danil\Desktop\ANTLR\ANTLR\obj\Debug\net5.0-windows\ANTLR.genruntimeconfig.cache
+C:\Users\danil\Desktop\OOP university\DZ 5\ANTLR\ANTLR\obj\Debug\net5.0-windows\ANTLR.csproj.AssemblyReference.cache
+C:\Users\danil\Desktop\OOP university\DZ 5\ANTLR\ANTLR\obj\Debug\net5.0-windows\ANTLR.Form1.resources

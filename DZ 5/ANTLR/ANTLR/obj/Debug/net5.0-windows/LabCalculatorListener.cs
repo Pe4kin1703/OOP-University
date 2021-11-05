@@ -123,6 +123,32 @@ public interface ILabCalculatorListener : IParseTreeListener {
 	void ExitBigExpr([NotNull] LabCalculatorParser.BigExprContext context);
 
 	/// <summary>
+	/// Enter a parse tree produced by the <c>IncExpr</c>
+	/// labeled alternative in <see cref="LabCalculatorParser.expression"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterIncExpr([NotNull] LabCalculatorParser.IncExprContext context);
+	/// <summary>
+	/// Exit a parse tree produced by the <c>IncExpr</c>
+	/// labeled alternative in <see cref="LabCalculatorParser.expression"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitIncExpr([NotNull] LabCalculatorParser.IncExprContext context);
+
+	/// <summary>
+	/// Enter a parse tree produced by the <c>DecExpr</c>
+	/// labeled alternative in <see cref="LabCalculatorParser.expression"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterDecExpr([NotNull] LabCalculatorParser.DecExprContext context);
+	/// <summary>
+	/// Exit a parse tree produced by the <c>DecExpr</c>
+	/// labeled alternative in <see cref="LabCalculatorParser.expression"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitDecExpr([NotNull] LabCalculatorParser.DecExprContext context);
+
+	/// <summary>
 	/// Enter a parse tree produced by the <c>NumberExpr</c>
 	/// labeled alternative in <see cref="LabCalculatorParser.expression"/>.
 	/// </summary>

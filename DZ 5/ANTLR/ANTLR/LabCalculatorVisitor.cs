@@ -122,9 +122,25 @@ namespace ANTLR
             }
         }
 
+        /*        public override double VisitModDivExpr(LabCalculatorParser.ModDivExprContext context)
+                {
+                    int left = Convert.ToInt32(WalkLeft(context));
+                    int right = Convert.ToInt32(WalkRight(context));
+                    if (context.operatorToken.Type == LabCalculatorLexer.MOD)
+                    {
+                        Debug.WriteLine("{0} mod {1}", left, right);
+                        return left % right;
+                    }
+                    else
+                    {
+                        Debug.WriteLine("{0} div {1}", left, right);
+                        return left / right;
+                    }
+                }*/
+
         public override double VisitModDivExpr(LabCalculatorParser.ModDivExprContext context)
         {
-            int left = Convert.ToInt32( WalkLeft(context));
+            int left = Convert.ToInt32(WalkLeft(context));
             int right = Convert.ToInt32(WalkRight(context));
             if (context.operatorToken.Type == LabCalculatorLexer.MOD)
             {
@@ -136,6 +152,27 @@ namespace ANTLR
                 Debug.WriteLine("{0} div {1}", left, right);
                 return left / right;
             }
+        }
+
+        public override double VisitIncExpr(LabCalculatorParser.IncExprContext context)
+        {
+            var left = WalkLeft(context);
+            Debug.WriteLine("inc({0})", left);
+            return ++left;
+        }
+
+/*        public override double VisitUnarExpr(LabCalculatorParser.UnarExprContext context)
+        {
+            var left = WalkLeft(context);
+            Debug.WriteLine("-{0}", left);
+            return (-1)*left;
+        }*/
+
+        public override double VisitDecExpr(LabCalculatorParser.DecExprContext context)
+        {
+            var left = WalkLeft(context);
+            Debug.WriteLine("dec({0})", left);
+            return --left;
         }
 
         private double WalkLeft(LabCalculatorParser.ExpressionContext context)

@@ -141,6 +141,36 @@ public partial class LabCalculatorBaseListener : ILabCalculatorListener {
 	public virtual void ExitBigExpr([NotNull] LabCalculatorParser.BigExprContext context) { }
 
 	/// <summary>
+	/// Enter a parse tree produced by the <c>IncExpr</c>
+	/// labeled alternative in <see cref="LabCalculatorParser.expression"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterIncExpr([NotNull] LabCalculatorParser.IncExprContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by the <c>IncExpr</c>
+	/// labeled alternative in <see cref="LabCalculatorParser.expression"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitIncExpr([NotNull] LabCalculatorParser.IncExprContext context) { }
+
+	/// <summary>
+	/// Enter a parse tree produced by the <c>DecExpr</c>
+	/// labeled alternative in <see cref="LabCalculatorParser.expression"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterDecExpr([NotNull] LabCalculatorParser.DecExprContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by the <c>DecExpr</c>
+	/// labeled alternative in <see cref="LabCalculatorParser.expression"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitDecExpr([NotNull] LabCalculatorParser.DecExprContext context) { }
+
+	/// <summary>
 	/// Enter a parse tree produced by the <c>NumberExpr</c>
 	/// labeled alternative in <see cref="LabCalculatorParser.expression"/>.
 	/// <para>The default implementation does nothing.</para>

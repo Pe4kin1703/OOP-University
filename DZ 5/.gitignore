@@ -1,1 +1,7 @@
 Video/
+ANTLR/ANTLR/bin/
+ANTLR/ANTLR/obj/
+ANTLR/ANTLR/ANTLR.csproj
+ANTLR/ANTLR/ANTLR.csproj.user
+ANTLR/ANTLR.sln
+ANTLR/LabCalculatorVisitor.cs

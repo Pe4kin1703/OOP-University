@@ -73,6 +73,7 @@ namespace ANTLR
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.CalculateButton = new System.Windows.Forms.Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -82,6 +83,7 @@ namespace ANTLR
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -93,11 +95,11 @@ namespace ANTLR
             this.dataGridView1.RowTemplate.Height = 29;
             this.dataGridView1.Size = new System.Drawing.Size(990, 426);
             this.dataGridView1.TabIndex = 0;
-          //  this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridView1.Click += new System.EventHandler(this.dataGridView1_Click);
             // 
             // AddRowButton
             // 
-            this.AddRowButton.Location = new System.Drawing.Point(12, 76);
+            this.AddRowButton.Location = new System.Drawing.Point(3, 76);
             this.AddRowButton.Name = "AddRowButton";
             this.AddRowButton.Size = new System.Drawing.Size(104, 33);
             this.AddRowButton.TabIndex = 1;
@@ -107,7 +109,7 @@ namespace ANTLR
             // 
             // DeleteRowButton
             // 
-            this.DeleteRowButton.Location = new System.Drawing.Point(133, 76);
+            this.DeleteRowButton.Location = new System.Drawing.Point(113, 76);
             this.DeleteRowButton.Name = "DeleteRowButton";
             this.DeleteRowButton.Size = new System.Drawing.Size(94, 33);
             this.DeleteRowButton.TabIndex = 2;
@@ -117,9 +119,9 @@ namespace ANTLR
             // 
             // AddColumnButton
             // 
-            this.AddColumnButton.Location = new System.Drawing.Point(243, 76);
+            this.AddColumnButton.Location = new System.Drawing.Point(255, 78);
             this.AddColumnButton.Name = "AddColumnButton";
-            this.AddColumnButton.Size = new System.Drawing.Size(140, 33);
+            this.AddColumnButton.Size = new System.Drawing.Size(109, 33);
             this.AddColumnButton.TabIndex = 3;
             this.AddColumnButton.Text = "Add Column";
             this.AddColumnButton.UseVisualStyleBackColor = true;
@@ -127,9 +129,9 @@ namespace ANTLR
             // 
             // DeleteColumnButton
             // 
-            this.DeleteColumnButton.Location = new System.Drawing.Point(424, 76);
+            this.DeleteColumnButton.Location = new System.Drawing.Point(370, 78);
             this.DeleteColumnButton.Name = "DeleteColumnButton";
-            this.DeleteColumnButton.Size = new System.Drawing.Size(199, 33);
+            this.DeleteColumnButton.Size = new System.Drawing.Size(135, 33);
             this.DeleteColumnButton.TabIndex = 4;
             this.DeleteColumnButton.Text = "Delete Column";
             this.DeleteColumnButton.UseVisualStyleBackColor = true;
@@ -165,7 +167,6 @@ namespace ANTLR
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(46, 24);
             this.fileToolStripMenuItem.Text = "&File";
-            this.fileToolStripMenuItem.Click += new System.EventHandler(this.fileToolStripMenuItem_Click);
             // 
             // newToolStripMenuItem
             // 
@@ -184,6 +185,7 @@ namespace ANTLR
             this.openToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
             this.openToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.openToolStripMenuItem.Text = "&Open";
+            this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // toolStripSeparator
             // 
@@ -376,7 +378,7 @@ namespace ANTLR
             // 
             // CalculateButton
             // 
-            this.CalculateButton.Location = new System.Drawing.Point(705, 80);
+            this.CalculateButton.Location = new System.Drawing.Point(616, 82);
             this.CalculateButton.Name = "CalculateButton";
             this.CalculateButton.Size = new System.Drawing.Size(94, 29);
             this.CalculateButton.TabIndex = 6;
@@ -395,6 +397,7 @@ namespace ANTLR
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.textBox1);
             this.splitContainer1.Panel1.Controls.Add(this.CalculateButton);
             this.splitContainer1.Panel1.Controls.Add(this.DeleteColumnButton);
             this.splitContainer1.Panel1.Controls.Add(this.AddRowButton);
@@ -403,6 +406,14 @@ namespace ANTLR
             this.splitContainer1.Size = new System.Drawing.Size(990, 125);
             this.splitContainer1.SplitterDistance = 960;
             this.splitContainer1.TabIndex = 7;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(736, 84);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(221, 27);
+            this.textBox1.TabIndex = 7;
             // 
             // Form1
             // 
@@ -417,11 +428,11 @@ namespace ANTLR
             this.Name = "Form1";
             this.Text = "Excel";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing_1);
-           // this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -468,5 +479,6 @@ namespace ANTLR
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private Button CalculateButton;
         private SplitContainer splitContainer1;
+        private TextBox textBox1;
     }
 }

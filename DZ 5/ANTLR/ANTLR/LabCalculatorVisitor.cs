@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Windows.Forms;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -117,6 +118,11 @@ namespace ANTLR
             }
             else //LabCalculatorLexer.DIVIDE
             {
+                if (right == 0)
+                {
+                    MessageBox.Show("ERROR: divide by zero!");
+                    return 0;
+                }
                 Debug.WriteLine("{0} / {1}", left, right);
                 return left / right;
             }
@@ -142,6 +148,11 @@ namespace ANTLR
         {
             int left = Convert.ToInt32(WalkLeft(context));
             int right = Convert.ToInt32(WalkRight(context));
+            if (right == 0)
+            {
+                MessageBox.Show("ERROR");
+                return 0;
+            }
             if (context.operatorToken.Type == LabCalculatorLexer.MOD)
             {
                 Debug.WriteLine("{0} mod {1}", left, right);

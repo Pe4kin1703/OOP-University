@@ -14,8 +14,6 @@ namespace ANTLR
         private string _expression;
         private int _row;
         private int _column;
-        //  static private List<string> dependingList; // список клеток, на которые ссылается данная клетка
-
         public List<MyCell> pointersToThis = new List<MyCell>();
         public List<MyCell> referencesFromThis = new List<MyCell>();
         public List<MyCell> new_referencesFromThis = new List<MyCell>();
@@ -31,6 +29,23 @@ namespace ANTLR
             _name = cellName;
             _value = "0";
             _expression = "";
+        }
+
+        public void setCell(string expr, string val, List<MyCell> references, List<MyCell> pointers)
+        {
+            this._value = val;
+            this._expression = expr;
+            if (this.referencesFromThis != null)
+            {
+                this.referencesFromThis.Clear();
+            }            
+            this.referencesFromThis.AddRange(references);
+
+            if (this.pointersToThis != null)
+            {
+                this.pointersToThis.Clear();
+            }
+            this.pointersToThis.AddRange(pointers);
         }
 
         public int Column
@@ -61,11 +76,11 @@ namespace ANTLR
             set { _expression = value; }
         }
 
-        /* public List<string> Depends
-         {
-             get { return dependingList; }
-             set { dependingList = value; }
-         }*/
+        public void Clear()
+        {
+            _value = "0";
+            _expression = "";
+        }
 
         public void DeletePointers()
         {
@@ -75,7 +90,7 @@ namespace ANTLR
                 {
                     cell.pointersToThis.Remove(this);
                 }
-                referencesFromThis = null;
+                //referencesFromThis = null;
             }
         }
 

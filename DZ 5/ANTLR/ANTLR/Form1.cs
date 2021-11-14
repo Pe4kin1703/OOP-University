@@ -6,7 +6,6 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-//using Newtonsoft.Json;
 using System.Windows.Forms;
 using System.IO;
 
@@ -15,8 +14,8 @@ namespace ANTLR
 {
     public partial class Form1 : Form
     {
-        private int _defaultColumnNumber = 30;
-        private int _defaultRowNumber = 10;
+        private int _defaultColumnNumber = 3;
+        private int _defaultRowNumber = 3;
         private TableData _table;
         public Form1()
         {
@@ -41,7 +40,7 @@ namespace ANTLR
 
             }
 
-            for (int i = 0; i < rows - 1; ++i)
+            for (int i = 0; i < rows; ++i)
             {
                 dataGridView1.Rows.Add();
             }
@@ -69,40 +68,46 @@ namespace ANTLR
             DataGridViewColumn excelColumn = new DataGridViewColumn();
             MyCell cell = new MyCell();
             excelColumn.CellTemplate = cell;
-            excelColumn.HeaderText = ((char)(dataGridView1.ColumnCount + 65)).ToString();
-            excelColumn.Name = ((char)(dataGridView1.ColumnCount + 65)).ToString();
+            excelColumn.HeaderText = BasedSystem26.To26System(dataGridView1.ColumnCount);
+            excelColumn.Name = BasedSystem26.To26System(dataGridView1.ColumnCount);
 
             dataGridView1.Columns.Add(excelColumn);
 
-            _table.SetCellsInColumn(dataGridView1.ColumnCount - 1 + 65, dataGridView1);
+            _table.SetCellsInColumn(dataGridView1.ColumnCount-1, dataGridView1);
+
+            _table.ColCount++;
         }
 
         private void AddRowButton_Click(object sender, EventArgs e)
         {
             dataGridView1.Rows.Add();
             SetRowNum(dataGridView1);
+
             _table.SetCellsInRow(dataGridView1);
+
+            _table.RowCount++;
         }
 
-        private void fileToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void CalculateButton_Click(object sender, EventArgs e)
+        private void ExpCalculate()
         {
             int currRow = dataGridView1.CurrentCell.RowIndex;
             int currCol = dataGridView1.CurrentCell.ColumnIndex;
             string cellName = BasedSystem26.To26System(currCol) + (currRow + 1).ToString();
-
+            if (dataGridView1.CurrentCell.Value == null)
+            {
+                _table.cellList[cellName].Clear();
+                return;
+            } 
             string expression = (dataGridView1.CurrentCell.Value).ToString();
-
+            
             _table.ChangeCellsAndPointers(dataGridView1, cellName, expression);
             dataGridView1.CurrentCell.Value = _table.cellList[cellName].Value;
+            textBox1.Text = _table.cellList[cellName].Exp;
+        }
 
-            /*_table.cellList[cellName].Exp = (dataGridView1.CurrentCell.Value).ToString();
-            _table.cellList[cellName].Value = Calculator.Evaluate(_table.cellList[cellName].Exp).ToString();
-            dataGridView1.CurrentCell.Value = _table.cellList[cellName].Value;*/
+        private void CalculateButton_Click(object sender, EventArgs e)
+        {
+            ExpCalculate();
         }
 
         private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -116,27 +121,18 @@ namespace ANTLR
             {
                 FileStream fs = (FileStream)saveFileDialog.OpenFile();
                 StreamWriter sw = new StreamWriter(fs);
-               // cellList.WriteXml(sw);
-               // Stream
+                _table.Save(sw);
+                sw.Close();
+                fs.Close();
             }
         }
 
         private void DeleteRowButton_Click(object sender, EventArgs e)
         {
-            try
-            {
-                int row = dataGridView1.RowCount - 1;
-                for (int i = 0; i < dataGridView1.ColumnCount; ++i)
-                {
-                    string cellName = (char)(i + 65) + (row + 1).ToString();
-                    _table.cellList.Remove(cellName);
-                }
-                dataGridView1.Rows.RemoveAt(row-1);
-                dataGridView1.Refresh();
-                SetRowNum(dataGridView1);
-               // ClearRow(row + 1);
-            }
-            catch { }
+            if (!_table.DeleteRow(dataGridView1))
+                return;
+            dataGridView1.Rows.RemoveAt(_table.RowCount);
+            SetRowNum(dataGridView1);
         }
 
         private void Form1_FormClosing_1(object sender, FormClosingEventArgs e)
@@ -160,18 +156,9 @@ namespace ANTLR
 
         private void DeleteColumnButton_Click(object sender, EventArgs e)
         {
-            try
-            {
-                int col = dataGridView1.ColumnCount - 1;
-                for (int i = 0; i < dataGridView1.RowCount; ++i)
-                {
-                    string cellName = (char)(i + 65) + (col + 1).ToString();
-                    _table.cellList.Remove(cellName);
-                }
-                dataGridView1.Columns.RemoveAt(col);
-                dataGridView1.Refresh();
-            }
-            catch { }
+            if (!_table.DeleteColumn(dataGridView1))
+                return;
+            dataGridView1.Columns.RemoveAt(_table.ColCount);
         }
         private void helpToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -182,9 +169,32 @@ namespace ANTLR
                 "Help Menu");
         }
 
-        /* private void DeleteRowButton_Click(object sender, EventArgs e)
-         {
-             dataGridView1.Columns.Remove();
-         }*/
+        private void dataGridView1_Click(object sender, EventArgs e)
+        {
+            int row = dataGridView1.CurrentCell.RowIndex;
+            int col = dataGridView1.CurrentCell.ColumnIndex;
+            string cellName = BasedSystem26.To26System(col) + (row + 1).ToString();
+            textBox1.Text = _table.cellList[cellName].Exp;
+        }
+
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "TableFile|*.txt";
+            openFileDialog.Title = "Open Table File";
+            if (openFileDialog.ShowDialog() != DialogResult.OK)
+                return;
+            StreamReader sr = new StreamReader(openFileDialog.FileName);
+            dataGridView1.Rows.Clear();
+            dataGridView1.Columns.Clear();
+            int row; int column;
+            Int32.TryParse(sr.ReadLine(), out row);
+            Int32.TryParse(sr.ReadLine(), out column);
+            CreateDataGrid(row, column);
+            _table.Open(row, column, sr, dataGridView1);
+            sr.Close();
+        }
+
     }
 }
+
